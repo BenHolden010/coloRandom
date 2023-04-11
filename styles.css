@@ -54,3 +54,8 @@ h1 {
 .color5 {
     background-color: #A4C4CA;
 }
+
+.new-palette-button {
+    border: 1px;
+    border-radius: 90px;
+}
