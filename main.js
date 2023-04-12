@@ -18,10 +18,14 @@ var hexCode3 = document.querySelector('.hex-code3')
 var hexCode4 = document.querySelector('.hex-code4')
 var hexCode5 = document.querySelector('.hex-code5')
 
+var palette = document.querySelector('.palette')
+
 var newPaletteButton = document.querySelector('.new-palette-button')
+var lk1 = document.querySelector('#lk1')
 
 newPaletteButton.addEventListener('click', displayPalette)
 window.addEventListener('load', displayPalette)
+palette.addEventListener('click', toggleLock)
 
 var colorArray = ['A', 'B', 'C', 'D', 'E', 'F', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -82,5 +86,12 @@ function displayColors() {
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
   }
+
+function toggleLock(event) {
+    // if(event.target.id === 'lk1') {
+    lk1.classList.add('hidden')
+    console.log('hello')
+}
+// }
 
 
