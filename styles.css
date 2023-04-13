@@ -65,14 +65,21 @@ h1 {
     background-color: #A4C4CA;
 }
 
-.new-palette-button {
+.new-palette-button, .save-palette-button {
     border: 1px;
     padding: 10px 50px;
+    margin: 0px 65px;;
     border-radius: 0 65px 0 65px;
     background-color: black;
     color: white;
     font-family: 'Poppins';
     font-size: 24px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    /* width: 400px */
 }
 
 .hidden {
