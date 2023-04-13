@@ -32,10 +32,10 @@ var palette = document.querySelector('.palette')
 var newPaletteButton = document.querySelector('.new-palette-button')
 var lk1 = document.querySelector('#lk1')
 
-newPaletteButton.addEventListener('click', displayPalette)
+// newPaletteButton.addEventListener('click', displayPalette)
+newPaletteButton.addEventListener('click', updateCurrentPalette)
 window.addEventListener('load', displayPalette)
 palette.addEventListener('click', toggleLock)
-// locks.addEventListener('click', toggleIcon)
 
 var colorArray = ['A', 'B', 'C', 'D', 'E', 'F', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -50,49 +50,68 @@ var currentPalette = {
 
 function updateCurrentPalette() {
     var updatedPalette = {
-        color1: `#${randomColor()}`,
-        color2: `#${randomColor()}`,
-        color3: `#${randomColor()}`,
-        color4: `#${randomColor()}`,
-        color5: `#${randomColor()}`,
+        // color1: `#${randomColor()}`,
+        // color2: `#${randomColor()}`,
+        // color3: `#${randomColor()}`,
+        // color4: `#${randomColor()}`,
+        // color5: `#${randomColor()}`,
         id: Date.now()
+    }
+    if (!u1.classList.contains('hidden')){
+        updatedPalette.color1 = `#${randomColor()}`
+    }
+    if (!u2.classList.contains('hidden')){
+        updatedPalette.color2 = `#${randomColor()}`
+    }
+    if (!u3.classList.contains('hidden')){
+        updatedPalette.color3 = `#${randomColor()}`
+    }
+    if (!u4.classList.contains('hidden')){
+        updatedPalette.color4 = `#${randomColor()}`
+    }
+    if (!u5.classList.contains('hidden')){
+        updatedPalette.color5 = `#${randomColor()}`
     }
     console.log(updatedPalette.color1)
     console.log(updatedPalette)
-    return updatedPalette
+    // return updatedPalette
+    currentPalette = updatedPalette
+    displayPalette()
 }
 
 function displayPalette() {
-    var display = updateCurrentPalette()
-    // if the classlist.contains('hidden') then the color will randomize
-    console.log(u1.classList.contains('hidden'))
-    if (!u1.classList.contains('hidden')){
-    color1.style.background = display.color1
-    hexCode1.innerText = display.color1
-    } if (!u2.classList.contains('hidden')){
-    color2.style.background = display.color2
-    hexCode2.innerText = display.color2
-    } if (!u3.classList.contains('hidden')){
-    color3.style.background = display.color3
-    hexCode3.innerText = display.color3
-    } if (!u4.classList.contains('hidden')){
-    color4.style.background = display.color4
-    hexCode4.innerText = display.color4
-    } if (!u5.classList.contains('hidden')){
-    color5.style.background = display.color5
-    hexCode5.innerText = display.color5
-    }
-    currentPalette = display
-    console.log(currentPalette)
-    return currentPalette
+    // var display = updateCurrentPalette()
+    // console.log(u1.classList.contains('hidden'))
+    // if (!u1.classList.contains('hidden')){
+    // color1.style.background = display.color1
+    color1.style.background = currentPalette.color1
+    hexCode1.innerText = currentPalette.color1
+    // } 
+    // if (!u2.classList.contains('hidden')){
+    // color2.style.background = display.color2
+    color2.style.background = currentPalette.color2
+    hexCode2.innerText = currentPalette.color2
+    // } if (!u3.classList.contains('hidden')){
+    // color3.style.background = display.color3
+    color3.style.background = currentPalette.color3
+    hexCode3.innerText = currentPalette.color3
+    // } if (!u4.classList.contains('hidden')){
+    // color4.style.background = display.color4
+    color4.style.background = currentPalette.color4
+    hexCode4.innerText = currentPalette.color4
+    // } if (!u5.classList.contains('hidden')){
+    // color5.style.background = display.color5
+    color5.style.background = currentPalette.color5
+    hexCode5.innerText = currentPalette.color5
+    // }
+    // currentPalette = display
+    // return currentPalette
 } 
 
 function randomColor() {
     var randomColor = [null, null, null, null, null, null]
     for (var i = 0; i < randomColor.length; i++) {
         randomColor[i] = colorArray[getRandomIndex(colorArray)]
-        // console.log(randomColor[i])
-        // console.log(randomColor)
     }
     return randomColor.join('')
 }
@@ -110,7 +129,6 @@ function getRandomIndex(array) {
     if(event.target.id === locks[i].id || event.target.id === unlocks[i].id) {
             locks[i].classList.toggle('hidden')
             unlocks[i].classList.toggle('hidden')
-            console.log(event.target.id)
         }
     }
 }
