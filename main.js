@@ -32,11 +32,15 @@ var palette = document.querySelector('.palette')
 var newPaletteButton = document.querySelector('.new-palette-button')
 var lk1 = document.querySelector('#lk1')
 
+var savePaletteButton = document.querySelector('.save-palette-button')
+var userPalettesSection = document.querySelector('.user-palettes')
+
 // newPaletteButton.addEventListener('click', displayPalette)
 newPaletteButton.addEventListener('click', updateCurrentPalette)
 // window.addEventListener('load', displayPalette)
 window.addEventListener('load', updateCurrentPalette)
 palette.addEventListener('click', toggleLock)
+savePaletteButton.addEventListener('click', saveMiniPalette)
 
 var colorArray = ['A', 'B', 'C', 'D', 'E', 'F', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -74,6 +78,44 @@ function updateCurrentPalette() {
     currentPalette = updatedPalette
     displayPalette()
 }
+
+function saveMiniPalette(){
+    userPalettes.push(currentPalette)
+    displayMiniPalette()
+    updateCurrentPalette()
+}
+
+function displayMiniPalette(){
+    console.log(userPalettes.length)
+    // userPalettesSection.innerHTML = ``
+    if (userPalettes.length === 1){
+        userPalettesSection.innerHTML = ``
+    }
+    userPalettesSection.innerHTML += `
+    <div class='mini-palette'>
+     <section class="mini-color1" style = "background-color: ${currentPalette.color1}";>
+     </section>
+     <section class="mini-color2" style = "background-color: ${currentPalette.color2}">
+     </section>
+     <section class="mini-color3" style = "background-color: ${currentPalette.color3}">
+     </section>
+     <section class="mini-color4" style = "background-color: ${currentPalette.color4}">
+     </section>
+     <section class="mini-color5" style = "background-color: ${currentPalette.color5}">
+     </section>
+    </div>`
+    
+    // var miniColor1 = document.querySelector('.mini-color1')
+    // var miniColor2 = document.querySelector('.mini-color2')
+    // var miniColor3 = document.querySelector('.mini-color3')
+    // var miniColor4 = document.querySelector('.mini-color4')
+    // var miniColor5 = document.querySelector('.mini-color5')
+    // miniColor1.style.background = currentPalette.color1
+    // miniColor2.style.background = currentPalette.color2
+    // miniColor3.style.background = currentPalette.color3
+    // miniColor4.style.background = currentPalette.color4
+    // miniColor5.style.background = currentPalette.color5
+}    
 
 function displayPalette() {
     // var display = updateCurrentPalette()
