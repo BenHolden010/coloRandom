@@ -5,6 +5,10 @@
 
 //  function that randomizes from the array
 //  function that puts the color into the box
+
+var locks = document.querySelectorAll('.lock')
+var unlocks = document.querySelectorAll('.unlock')
+
 var u1 = document.querySelector('#u1')
 var u2 = document.querySelector('#u2')
 var u3 = document.querySelector('#u3')
@@ -101,32 +105,12 @@ function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
   }
 
-function toggleLock(event) {
-    if(event.target.id === u1.id || event.target.id === lk1.id) {
-        lk1.classList.toggle('hidden')
-        u1.classList.toggle('hidden')
-        console.log(event.target.id)
+  function toggleLock(event) {
+    for (var i = 0; i < locks.length; i++) {    
+    if(event.target.id === locks[i].id || event.target.id === unlocks[i].id) {
+            locks[i].classList.toggle('hidden')
+            unlocks[i].classList.toggle('hidden')
+            console.log(event.target.id)
         }
-    
-        if(event.target.id === u2.id || event.target.id === lk2.id) {
-        lk2.classList.toggle('hidden')
-        u2.classList.toggle('hidden')
-        console.log('event.target.id')
-        }
-        if(event.target.id === u3.id || event.target.id === lk3.id) {
-        lk3.classList.toggle('hidden')
-        u3.classList.toggle('hidden')
-        console.log('event.target.id')
-        }
-        if(event.target.id === u4.id || event.target.id === lk4.id) {
-        lk4.classList.toggle('hidden')
-        u4.classList.toggle('hidden')
-        console.log('event.target.id')
-        }
-        if(event.target.id === u5.id || event.target.id === lk5.id) {
-        lk5.classList.toggle('hidden')
-        u5.classList.toggle('hidden')
-        console.log('event.target.id')
-        }
-    
     }
+}
