@@ -34,7 +34,8 @@ var lk1 = document.querySelector('#lk1')
 
 // newPaletteButton.addEventListener('click', displayPalette)
 newPaletteButton.addEventListener('click', updateCurrentPalette)
-window.addEventListener('load', displayPalette)
+// window.addEventListener('load', displayPalette)
+window.addEventListener('load', updateCurrentPalette)
 palette.addEventListener('click', toggleLock)
 
 var colorArray = ['A', 'B', 'C', 'D', 'E', 'F', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -49,14 +50,8 @@ var currentPalette = {
 }
 
 function updateCurrentPalette() {
-    var updatedPalette = {
-        // color1: `#${randomColor()}`,
-        // color2: `#${randomColor()}`,
-        // color3: `#${randomColor()}`,
-        // color4: `#${randomColor()}`,
-        // color5: `#${randomColor()}`,
-        id: Date.now()
-    }
+    var updatedPalette = currentPalette
+
     if (!u1.classList.contains('hidden')){
         updatedPalette.color1 = `#${randomColor()}`
     }
