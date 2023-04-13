@@ -25,12 +25,11 @@ h1 {
 .palette {
     display: flex;
     justify-content: space-between;
-    width: 50%;
 }
 
 .boxColor  {
-   height: 100px;
-   width: 100px;
+   height: 150px;
+   width: 150px;
    border: solid;
    display: flex;
    justify-content: flex-end;
@@ -38,7 +37,7 @@ h1 {
    margin: 5px;
 }
 
-.lock {
+.unlock, .lock {
     height: 20%;
     width: 20%;
     padding: 2px;
