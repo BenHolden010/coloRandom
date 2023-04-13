@@ -5,6 +5,11 @@
 
 //  function that randomizes from the array
 //  function that puts the color into the box
+var u1 = document.querySelector('#u1')
+var u2 = document.querySelector('#u2')
+var u3 = document.querySelector('#u3')
+var u4 = document.querySelector('#u4')
+var u5 = document.querySelector('#u5')
 
 var color1 = document.querySelector('.color1')
 var color2 = document.querySelector('.color2')
@@ -55,16 +60,24 @@ function updateCurrentPalette() {
 
 function displayPalette() {
     var display = updateCurrentPalette()
+    // if the classlist.contains('hidden') then the color will randomize
+    console.log(u1.classList.contains('hidden'))
+    if (!u1.classList.contains('hidden')){
     color1.style.background = display.color1
-    color2.style.background = display.color2
-    color3.style.background = display.color3
-    color4.style.background = display.color4
-    color5.style.background = display.color5
     hexCode1.innerText = display.color1
+    } if (!u2.classList.contains('hidden')){
+    color2.style.background = display.color2
     hexCode2.innerText = display.color2
+    } if (!u3.classList.contains('hidden')){
+    color3.style.background = display.color3
     hexCode3.innerText = display.color3
+    } if (!u4.classList.contains('hidden')){
+    color4.style.background = display.color4
     hexCode4.innerText = display.color4
+    } if (!u5.classList.contains('hidden')){
+    color5.style.background = display.color5
     hexCode5.innerText = display.color5
+    }
     currentPalette = display
     console.log(currentPalette)
     return currentPalette
