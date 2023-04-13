@@ -82,6 +82,7 @@ function updateCurrentPalette() {
 function saveMiniPalette(){
     userPalettes.push(currentPalette)
     displayMiniPalette()
+    updateCurrentPalette()
 }
 
 function displayMiniPalette(){
