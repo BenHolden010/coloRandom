@@ -105,3 +105,16 @@ header {
 .hidden {
    display: none;
 }
+
+.mini-palette {
+    display: flex;
+}
+
+.mini-color1, .mini-color2, .mini-color3, .mini-color4, .mini-color5 {
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+    border: 2px;
+    border-color: solid;
+    /* background-color:#990508; */
+}
