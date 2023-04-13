@@ -48,6 +48,7 @@ var currentPalette = {
     color5: '#A4C4CA',
     id: Date.now()
 }
+var userPalettes = []
 
 function updateCurrentPalette() {
     var updatedPalette = currentPalette
