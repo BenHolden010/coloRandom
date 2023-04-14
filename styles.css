@@ -38,11 +38,18 @@ header {
     font-size: 40px;
     font-weight: 700;
     margin-top: 25%;
+    margin-bottom: 5%;
 }
 
 .palette {
     display: flex;
     justify-content: space-between;
+}
+
+.mini-palette {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .boxColor  {
@@ -101,16 +108,7 @@ header {
     /* width: 400px */
 }
 
-
-.hidden {
-   display: none;
-}
-
-.mini-palette {
-    display: flex;
-}
-
-.mini-color1, .mini-color2, .mini-color3, .mini-color4, .mini-color5 {
+.mini-color {
     height: 50px;
     width: 50px;
     margin: 10px;
@@ -119,7 +117,11 @@ header {
 }
 
 .delete-icon {
-    height: 9%;
-    width: 9%;
+    height: 50px;
+    width: 50px;
+    margin: 10px;
+}
 
+.hidden {
+   display: none;
 }
