@@ -75,21 +75,6 @@ header {
     align-items: center;
 }
 
-.color1 {
-    background-color: #EA9999;
-}
-.color2 {
-    background-color: #FACB9C;  
-}
-.color3 {
-    background-color: #FFE59A;
-}
-.color4 {
-    background-color: #B6D7A8;
-}
-.color5 {
-    background-color: #A4C4CA;
-}
 
 .new-palette-button, .save-palette-button {
     border: 1px;
@@ -105,7 +90,6 @@ header {
 .buttons {
     display: flex;
     justify-content: space-around;
-    /* width: 400px */
 }
 
 .mini-color {
@@ -115,7 +99,6 @@ header {
     border: 2px;
     border: solid;
 }
-
 .delete-icon {
     height: 50px;
     width: 50px;
