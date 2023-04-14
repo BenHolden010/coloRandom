@@ -117,3 +117,9 @@ header {
     border: 2px;
     border: solid;
 }
+
+.delete-icon {
+    height: 9%;
+    width: 9%;
+
+}
