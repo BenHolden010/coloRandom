@@ -2,15 +2,10 @@
 
 var locks = document.querySelectorAll('.lock')
 var unlocks = document.querySelectorAll('.unlock')
-
-
 var colors = document.querySelectorAll('.boxColor');
-
 var hexCodes = document.querySelectorAll('.hex-code')
-
 var palette = document.querySelector('.palette')
 var userPalettesSection = document.querySelector('.user-palettes')
-
 var newPaletteButton = document.querySelector('.new-palette-button')
 var savePaletteButton = document.querySelector('.save-palette-button')
 
@@ -26,7 +21,6 @@ savePaletteButton.addEventListener('click', saveMiniPalette)
 // Data Model:
 
 var colorArray = ['A', 'B', 'C', 'D', 'E', 'F', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
 var currentPalette = {
     color1: '#EA9999',
     color2: '#FACB9C',
@@ -35,10 +29,9 @@ var currentPalette = {
     color5: '#A4C4CA',
     id: Date.now()
 }
-
 var userPalettes = []
 
-// Fucntions:
+// Functions:
 
 function toggleLock(event) {
   for (var i = 0; i < locks.length; i++) {    
@@ -105,7 +98,7 @@ function displayMiniPalette(){
                 </section>
                 <section class="mini-color" style = "background-color: ${userPalettes[i].color5}">
                 </section>
-                <img src="assets/delete.png" class="delete-icon" id=${userPalettes[i].id}>
+                <img src="assets/delete.png" class="delete-icon" id=${userPalettes[i].id} alt="delete icon">
             </div>
             `
         }
