@@ -41,6 +41,7 @@ newPaletteButton.addEventListener('click', updateCurrentPalette)
 window.addEventListener('load', updateCurrentPalette)
 palette.addEventListener('click', toggleLock)
 savePaletteButton.addEventListener('click', saveMiniPalette)
+userPalettesSection.addEventListener('click', deleteMiniPalette)
 
 var colorArray = ['A', 'B', 'C', 'D', 'E', 'F', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
@@ -72,8 +73,7 @@ function updateCurrentPalette() {
     if (!u5.classList.contains('hidden')){
         updatedPalette.color5 = `#${randomColor()}`
     }
-    console.log(updatedPalette.color1)
-    console.log(updatedPalette)
+   updatedPalette.id = Date.now()
     // return updatedPalette
     currentPalette = updatedPalette
     displayPalette()
@@ -86,13 +86,11 @@ function saveMiniPalette(){
 }
 
 function displayMiniPalette(){
-    console.log(userPalettes.length)
-    // userPalettesSection.innerHTML = ``
-    if (userPalettes.length === 1){
-        userPalettesSection.innerHTML = ``
-    }
+        if (userPalettes.length === 1){
+            userPalettesSection.innerHTML = ``
+        }
     userPalettesSection.innerHTML += `
-    <div class='mini-palette'>
+    <div class='mini-palette' id=${Date.now()}>
      <section class="mini-color1" style = "background-color: ${currentPalette.color1}";>
      </section>
      <section class="mini-color2" style = "background-color: ${currentPalette.color2}">
@@ -103,8 +101,10 @@ function displayMiniPalette(){
      </section>
      <section class="mini-color5" style = "background-color: ${currentPalette.color5}">
      </section>
+     <img src="assets/delete.png" class="delete-icon">
     </div>`
     
+
     // var miniColor1 = document.querySelector('.mini-color1')
     // var miniColor2 = document.querySelector('.mini-color2')
     // var miniColor3 = document.querySelector('.mini-color3')
@@ -169,4 +169,14 @@ function getRandomIndex(array) {
             unlocks[i].classList.toggle('hidden')
         }
     }
+}
+
+function deleteMiniPalette(event) {
+    for(var i=0; i<userPalettes.length; i++) {
+        if(event.target.id === userPalettes[i].id) {
+            userPalettes.splice(i, 1)
+        }
+    }
+    // displayMiniPalette()
+    console.log(event.target.id)
 }
