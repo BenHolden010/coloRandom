@@ -22,11 +22,26 @@ savePaletteButton.addEventListener('click', saveMiniPalette)
 
 var colorArray = ['A', 'B', 'C', 'D', 'E', 'F', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 var currentPalette = {
-    color1: '#EA9999',
-    color2: '#FACB9C',
-    color3: '#FFE59A',
-    color4: '#B6D7A8',
-    color5: '#A4C4CA',
+    color1: {
+        color: '#EA9999',
+        islocked: false
+    },
+    color2: {
+        color: '#FACB9C',
+        islocked: false
+    },
+    color3: {
+        color: '#FFE59A',
+        isLocked: false
+    },
+    color4: {
+        color: '#B6D7A8',
+        isLocked: false
+    },
+    color5: {
+        color: '#A4C4CA',
+        isLocked: false
+    },
     id: Date.now()
 }
 var userPalettes = []
@@ -38,6 +53,7 @@ function toggleLock(event) {
   if(event.target.id === locks[i].id || event.target.id === unlocks[i].id) {
           locks[i].classList.toggle('hidden')
           unlocks[i].classList.toggle('hidden')
+          currentPalette[`color${i+1}`].isLocked = !currentPalette[`color${i+1}`].isLocked 
         }
     }
 }
@@ -56,9 +72,9 @@ function getRandomIndex(array) {
 
 function updateCurrentPalette() {
     var updatedPalette = currentPalette
-    for (var i = 0; i < unlocks.length; i++) {
-        if (!unlocks[i].classList.contains('hidden')) {
-            updatedPalette[`color${i+1}`] = `#${randomColor()}`;
+    for (var i = 0; i < 5 ; i++) {
+        if (!updatedPalette[`color${i+1}`].isLocked) {
+            updatedPalette[`color${i+1}`].color = `#${randomColor()}`;
         }
     }
     updatedPalette.id = Date.now()
@@ -68,13 +84,20 @@ function updateCurrentPalette() {
 
 function displayPalette() {
     for (var i = 0; i < colors.length; i++) {
-        colors[i].style.background = currentPalette[`color${i+1}`]
-        hexCodes[i].innerText = currentPalette[`color${i+1}`]
+        colors[i].style.background = currentPalette[`color${i+1}`].color
+        hexCodes[i].innerText = currentPalette[`color${i+1}`].color
     }
 }
 
 function saveMiniPalette(){
-    userPalettes.push({ ...currentPalette })
+    userPalettes.push({
+        ...currentPalette,
+        color1: { ...currentPalette.color1 },
+        color2: { ...currentPalette.color2 },
+        color3: { ...currentPalette.color3 },
+        color4: { ...currentPalette.color4 },
+        color5: { ...currentPalette.color5 }
+      })
     displayMiniPalette()
     updateCurrentPalette()
 }
@@ -88,15 +111,15 @@ function displayMiniPalette(){
             userPalettesSection.innerHTML += 
             `
             <div class='mini-palette'>
-                <section class="mini-color" style = "background-color: ${userPalettes[i].color1}";>
+                <section class="mini-color" style = "background-color: ${userPalettes[i].color1.color}";>
                 </section>
-                <section class="mini-color" style = "background-color: ${userPalettes[i].color2}">
+                <section class="mini-color" style = "background-color: ${userPalettes[i].color2.color}">
                 </section>
-                <section class="mini-color" style = "background-color: ${userPalettes[i].color3}">
+                <section class="mini-color" style = "background-color: ${userPalettes[i].color3.color}">
                 </section>
-                <section class="mini-color" style = "background-color: ${userPalettes[i].color4}">
+                <section class="mini-color" style = "background-color: ${userPalettes[i].color4.color}">
                 </section>
-                <section class="mini-color" style = "background-color: ${userPalettes[i].color5}">
+                <section class="mini-color" style = "background-color: ${userPalettes[i].color5.color}">
                 </section>
                 <img src="assets/delete.png" class="delete-icon" id=${userPalettes[i].id} alt="delete icon">
             </div>
