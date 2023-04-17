@@ -42,6 +42,11 @@ button {
     font-size: 24px;
 }
 
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
 .saved {
     width: 30%;
     border-left: solid;
@@ -50,7 +55,6 @@ button {
     flex-direction: column;
     align-items: center;
 }
-
 
 .palette {
     display: flex;
@@ -86,13 +90,6 @@ button {
     align-items: center;
 }
 
-
-
-.buttons {
-    display: flex;
-    justify-content: space-around;
-}
-
 .mini-color {
     height: 40px;
     width: 40px;
@@ -100,6 +97,7 @@ button {
     border: 2px;
     border: solid;
 }
+
 .delete-icon {
     height: 40px;
     width: 40px;
