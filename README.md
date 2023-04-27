@@ -17,7 +17,7 @@ This application enables users to create random palettes and save them to a mini
 
 ### Context:
 
-This project took us 4 days to complete, I am currently in week 6 of mod1 at turing.
+This project took us 4 days to complete, I am currently in week 4 of mod1 at turing.
 
 ### Contributors:
 
