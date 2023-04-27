@@ -21,9 +21,7 @@ This project took us 4 days to complete, I am currently in week 4 of mod1 at tur
 
 ### Contributors:
 
-Ben Holden
-Alec Livaditis
-Lauren DeLarosa
+Ben Holden, Alec Livaditis, Lauren DeLarosa
 
 ### Learning Goals:
 
