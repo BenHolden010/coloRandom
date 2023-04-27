@@ -14,6 +14,7 @@ This application enables users to create random palettes and save them to a mini
 ### Preview of App:
 
 <img width="1440" alt="Screenshot 2023-04-27 at 8 34 57 AM" src="https://user-images.githubusercontent.com/126317930/234896469-0012f88a-fa8c-47db-85b8-c6a8da8d7f41.png">
+https://benholden010.github.io/coloRandom/
 
 ### Context:
 
